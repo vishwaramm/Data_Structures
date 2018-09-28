@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Deck from './classes/deck';
-import UIDeck from './Deck';
+import Deck from '../classes/deck';
+import UIDeck from './UIDeck';
 
 class War extends Component {
     constructor(props) {
@@ -36,6 +36,10 @@ class War extends Component {
 
     handlePlayerClick() {
 
+    }
+
+    render() {
+        return null;
     }
 }
 

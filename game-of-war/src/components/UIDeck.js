@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import UICard from './Card';
+import UICard from './UICard';
 
 class UIDeck extends Component {
 
 }
 
-export default Deck;
+export default UIDeck;

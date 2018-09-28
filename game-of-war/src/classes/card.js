@@ -4,3 +4,5 @@ class Card {
         this.suit = 0;
     }
 }
+
+export default Card;

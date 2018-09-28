@@ -2,7 +2,6 @@ import Card from './card';
 
 class Deck {
     constructor(props) {
-        super(props);
         this.cards = [];
         this.suits = {
             Hearts: 1,
@@ -11,7 +10,7 @@ class Deck {
             Spades: 4
         };
 
-        for (let suit in suits) {
+        for (let suit in this.suits) {
             for (let i = 0; i < 13; i++) {
                 let card = new Card();
                 card.rank = i + 2;
@@ -39,3 +38,5 @@ class Deck {
         }
     }
 }
+
+export default Deck;

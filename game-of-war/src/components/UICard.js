@@ -1,15 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-class UICard extends Component {
-
-    render() {
-        return (
-            <div className="card">
-                <div className="suit">{this.props.card.suit}</div>
-                <div className="rank">{this.props.card.rank}</div>
-            </div>
-        );
-    }
-}
+const UICard = ({ card, onClick }) => {
+  if (card.isFaceDown) {
+    return (
+      <li
+        key={card.id}
+        className="face-down card"
+        onClick={() => {
+          onClick(card);
+        }}
+      />
+    );
+  } else {
+    return (
+      <li key={card.id} className="card face-up">
+        <span className="suit">{card.suit}</span>
+        <span className="rank">{card.rank}</span>
+      </li>
+    );
+  }
+};
 
 export default UICard;

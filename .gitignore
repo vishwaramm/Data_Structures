@@ -22,3 +22,7 @@ chrome-user-data
 .vscode
 *.swp
 *.swo
+file-parser/input/csv_large.txt
+file-parser/input/csv_50.txt
+file-parser/input/pipe_50.txt
+file-parser/input/space_50.txt

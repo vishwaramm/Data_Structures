@@ -71,7 +71,7 @@ class FileParser:
             index = dictionary[key]
 
             if index > -1:
-                return data[index]
+                return data[index].strip()
             return None
 
         try:
@@ -83,7 +83,7 @@ class FileParser:
             person = p.Person(_getColumn(data, parser, "LastName"),
                               _getColumn(data, parser, "FirstName"),
                               _getColumn(data, parser, "MiddleInitial"),
-                              _getColumn(data, parser, "Gender").strip(),
+                              _getColumn(data, parser, "Gender"),
                               _getColumn(data, parser, "FavoriteColor"),
                               _getColumn(data, parser, "DateOfBirth"))
 

@@ -13,6 +13,7 @@ class FileParser:
 
         self.delimiterDictionary[","]["FirstName"] = 1
         self.delimiterDictionary[","]["LastName"] = 0
+        self.delimiterDictionary[","]["MiddleInitial"] = -1
         self.delimiterDictionary[","]["Gender"] = 2
         self.delimiterDictionary[","]["FavoriteColor"] = 3
         self.delimiterDictionary[","]["DateOfBirth"] = 4
@@ -34,6 +35,7 @@ class FileParser:
     def parse(self, filename):
 
         people = []
+        appender = people.append
         # read file
         with open(filename, "r") as file:
             # get first line and auto-detect delimiter
@@ -50,13 +52,15 @@ class FileParser:
 
             # get delimiter dictionary to get the index of each column
             parser = self.delimiterDictionary[self.delimiter]
-            while line != "":
+
+            # for each line in file, parse line and create class and store in collection
+            while line:
                 # parse data in current line
                 person = self.parseLine(line, parser)
 
                 # add person to collection if not null
                 if person is not None:
-                    people.append(person)
+                    appender(person)
 
                 line = file.readline()
 
@@ -64,11 +68,10 @@ class FileParser:
 
     def parseLine(self, line, parser):
         def _getColumn(data, dictionary, key):
-            index = dictionary.get(key, -1)
+            index = dictionary[key]
 
             if index > -1:
-                return data[index].strip()
-
+                return data[index]
             return None
 
         try:
@@ -76,10 +79,11 @@ class FileParser:
             data = line.split(self.delimiter)
 
             # create and populate person class with data from line
+
             person = p.Person(_getColumn(data, parser, "LastName"),
                               _getColumn(data, parser, "FirstName"),
                               _getColumn(data, parser, "MiddleInitial"),
-                              _getColumn(data, parser, "Gender"),
+                              _getColumn(data, parser, "Gender").strip(),
                               _getColumn(data, parser, "FavoriteColor"),
                               _getColumn(data, parser, "DateOfBirth"))
 

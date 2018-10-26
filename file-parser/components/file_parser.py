@@ -20,7 +20,7 @@ class FileParser:
 
         self.delimiterDictionary["|"]["FirstName"] = 1
         self.delimiterDictionary["|"]["LastName"] = 0
-        self.delimiterDictionary[" "]["MiddleInitial"] = 2
+        self.delimiterDictionary["|"]["MiddleInitial"] = 2
         self.delimiterDictionary["|"]["Gender"] = 3
         self.delimiterDictionary["|"]["FavoriteColor"] = 4
         self.delimiterDictionary["|"]["DateOfBirth"] = 5

@@ -66,6 +66,51 @@ class TestFileParser(unittest.TestCase):
         self.assertIsNotNone(people)
         self.assertEqual(len(people), 3)
 
+    def test_ParseLine_CommaDelimited_Success(self):
+        parser = fp.FileParser()
+        line = "Abercrombie, Neil, Male, Tan, 2/13/1943"
+        parser.delimiter = ','
+        person = parser.parseLine(
+            line, parser.delimiterDictionary[parser.delimiter])
+
+        self.assertIsNotNone(person)
+        self.assertEqual(person.lastName, "Abercrombie")
+        self.assertEqual(person.firstName, "Neil")
+        self.assertEqual(person.gender, "Male")
+        self.assertEqual(person.favoriteColor, "Tan")
+        self.assertEqual(person.dateOfBirth, "2/13/1943")
+        self.assertIsNone(person.middleInitial)
+
+    def test_ParseLine_PipeDelimited_Success(self):
+        parser = fp.FileParser()
+        line = "Smith | Steve | D | M | Red | 3-3-1985"
+        parser.delimiter = '|'
+        person = parser.parseLine(
+            line, parser.delimiterDictionary[parser.delimiter])
+
+        self.assertIsNotNone(person)
+        self.assertEqual(person.lastName, "Smith")
+        self.assertEqual(person.firstName, "Steve")
+        self.assertEqual(person.gender, "M")
+        self.assertEqual(person.favoriteColor, "Red")
+        self.assertEqual(person.dateOfBirth, "3-3-1985")
+        self.assertEqual(person.middleInitial, "D")
+
+    def test_ParseLine_SpaceDelimited_Success(self):
+        parser = fp.FileParser()
+        line = "Kournikova Anna F F 6-3-1975 Red"
+        parser.delimiter = ' '
+        person = parser.parseLine(
+            line, parser.delimiterDictionary[parser.delimiter])
+
+        self.assertIsNotNone(person)
+        self.assertEqual(person.lastName, "Kournikova")
+        self.assertEqual(person.firstName, "Anna")
+        self.assertEqual(person.gender, "F")
+        self.assertEqual(person.favoriteColor, "Red")
+        self.assertEqual(person.dateOfBirth, "6-3-1975")
+        self.assertEqual(person.middleInitial, "F")
+
 
 if __name__ == '__main__':
     unittest.main()

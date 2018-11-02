@@ -12,22 +12,21 @@ def main():
 
     parser = fp.FileParser()
     analyzer = pa.PeopleAnalyzer()
+    people = parser.parse(csvFile)
+    people.extend(parser.parse(pipeFile))
+    people.extend(parser.parse(spaceFile))
 
-    printOutputs(parser, analyzer, csvFile)
-    printOutputs(parser, analyzer, pipeFile)
-    printOutputs(parser, analyzer, spaceFile)
+    printOutputs(people, analyzer)
 
 
-def printOutputs(parser, analyzer, filename):
-    people = parser.parse(filename)
+def printOutputs(people, analyzer):
     peopleByGender = analyzer.sortByGender(people)
     peopleByDob = analyzer.sortByDateOfBirth(people)
     peopleByLastNameDescending = analyzer.sortByLastNameDescending(people)
 
-    print(filename)
-    printList(peopleByGender, "Output 1:")
-    printList(peopleByDob, "Output 2:")
-    printList(peopleByLastNameDescending, "Output 3:")
+    printList(peopleByGender, "Output 1 by gender and last name:")
+    printList(peopleByDob, "Output 2 by date of birth and last name:")
+    printList(peopleByLastNameDescending, "Output 3 by last name descending:")
     print("")
 
 

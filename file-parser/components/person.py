@@ -11,3 +11,9 @@ class Person:
         self.gender = gender
         self.favoriteColor = favoriteColor
         self.dateOfBirth = dateOfBirth
+
+    def getGenderString(self):
+        if self.gender == "M" or self.gender == "Male":
+            return "Male"
+        elif self.gender == "F" or self.gender == "Female":
+            return "Female"

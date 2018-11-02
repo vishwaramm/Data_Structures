@@ -5,9 +5,14 @@ import datetime
 
 class PeopleAnalyzer:
     def sortByGender(self, people):
+        def sortGender(person):
+            return person.getGenderString()
+
         sortedPeople = people.copy()
 
-        sortedPeople.sort(key=operator.attrgetter("gender", "lastName"))
+        sortedPeople.sort(key=operator.attrgetter("lastName"))
+        sortedPeople = sorted(sortedPeople, key=sortGender)
+
         return sortedPeople
 
     def sortByDateOfBirth(self, people):
@@ -26,7 +31,7 @@ class PeopleAnalyzer:
         sortedPeople = people.copy()
 
         sortedPeople.sort(key=operator.attrgetter("lastName"))
-        sortedPeople = sorted(people, key=sortDateTime)
+        sortedPeople = sorted(sortedPeople, key=sortDateTime)
         return sortedPeople
 
     def sortByLastNameDescending(self, people):

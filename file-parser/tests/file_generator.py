@@ -119,7 +119,7 @@ class FileGenerator:
 
     def generate(self, filename, entries, delimiter):
         with open(filename, "w+") as file:
-            for i in range(entries):
+            for _ in range(entries):
                 line = self.newLine(delimiter)
                 if line != "":
                     file.write(line)

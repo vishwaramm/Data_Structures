@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Vish.DataStructures.Models
 {
     public class SinglyLinkedList<T>
@@ -6,6 +8,14 @@ namespace Vish.DataStructures.Models
         private SinglyLinkedListNode<T> Head { get; set; }
 
         private SinglyLinkedListNode<T> Tail { get; set; }
+
+        public SinglyLinkedList() {}
+
+        public SinglyLinkedList(SinglyLinkedListNode<T> head, SinglyLinkedListNode<T> tail)
+        {
+            Head = head;
+            Tail = tail;
+        }
 
         //Runtime O(1)
         public SinglyLinkedListNode<T> GetFirstNode()
@@ -133,6 +143,35 @@ namespace Vish.DataStructures.Models
             }
 
             return null; //not found
+        }
+
+        public SinglyLinkedList<T> Reverse()
+        {
+            var current = Head;
+            SinglyLinkedListNode<T> prev = null;
+
+            while (current != null)
+            {
+                var temp = current.Next;
+                current.Next = prev;
+                prev = current;
+                current = temp;
+            }
+
+
+            SinglyLinkedList<T> newList = new SinglyLinkedList<T>(prev, Head);
+            return newList;
+        }
+
+        public IEnumerator<SinglyLinkedListNode<T>> GetEnumerator()
+        {
+            var current = Head;
+
+            while (current != null)
+            {
+                yield return current;
+                current = current.Next;
+            }
         }
     }
 

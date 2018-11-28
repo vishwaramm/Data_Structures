@@ -166,5 +166,30 @@ namespace Vish.DataStructures.Tests
             node = intList.Search(100);//not in list
             Assert.IsNull(node, "Node 100 found even though it doesn't exist");
         }
+
+        [TestMethod]
+        public void Test_IntegerList_Reverse()
+        {
+            SinglyLinkedList<int> intList = new SinglyLinkedList<int>();
+
+            int[] insertions = new int[5] { 1, 5, 50, 30, 23 };
+
+            foreach (int num in insertions)
+            {
+                intList.InsertFirst(num);
+            }
+
+            var newList = intList.Reverse();
+            var iterator = newList.GetEnumerator();
+
+            foreach (int num in insertions)
+            {
+                Assert.IsTrue(iterator.MoveNext(), "Iterator was empty before comparison was complete");
+                var node = iterator.Current;
+
+                Assert.IsNotNull(node, "Current node was null");
+                Assert.AreEqual(node.Value, num);
+            }
+        }
     }
 }

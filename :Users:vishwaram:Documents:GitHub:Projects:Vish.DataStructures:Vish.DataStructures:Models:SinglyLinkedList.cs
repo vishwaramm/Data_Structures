@@ -10,28 +10,14 @@ namespace Vish.DataStructures.Models
         //Runtime O(1)
         public SinglyLinkedListNode<T> GetFirstNode()
         {
-            if (Head == null)
-            {
-                return Tail;
-            }
-            else
-            {
-                return Head;
-            }
+            return Head;
         }
 
 
         //Runtime O(1)
         public SinglyLinkedListNode<T> GetLastNode()
         {
-            if (Tail == null)
-            {
-                return Head;
-            }
-            else
-            {
-                return Tail;
-            }
+            return Tail;
         }
 
         //Insertion for a linked list should be O(1)
@@ -62,21 +48,16 @@ namespace Vish.DataStructures.Models
             {
                 var node = new SinglyLinkedListNode<T>(val);
                 node.Next = Head;
-                Head = node;
-
-                if (Tail == null)
-                {
-                    Tail = node.Next;
-                }
+                Head = node.Next;
             }
         }
 
-        //Runtime O(n)
+        //Not sure how big O cheatsheet says this should be o(1), but what i have here is O(n)
         public void DeleteLast()
         {
             var current = Head;
 
-            while (current.Next != null && current.Next != Tail)
+            while (current.Next != Tail)
             {
                 current = current.Next;
             }
@@ -95,25 +76,6 @@ namespace Vish.DataStructures.Models
             if (Head != null)
             {
                 Head = Head.Next;
-            }
-        }
-
-        public void Delete(SinglyLinkedListNode<T> node)
-        {
-            if (node == Head)
-            {
-                DeleteFirst();
-            }
-            else
-            {
-                var current = Head;
-
-                while (current.Next != null && current.Next != node)
-                {
-                    current = current.Next;
-                }
-
-                current.Next = current.Next.Next;
             }
         }
 
@@ -149,5 +111,5 @@ namespace Vish.DataStructures.Models
         }
     }
 
-
+    
 }

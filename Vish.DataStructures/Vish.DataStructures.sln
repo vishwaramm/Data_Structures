@@ -1,7 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vish.DataStructures", "Vish.DataStructures\Vish.DataStructures.csproj", "{3C996D99-004C-4940-ABB5-3A6F31ECD6A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vish.DataStructures.Tests", "Vish.DataStructures.Tests\Vish.DataStructures.Tests.csproj", "{F0864B3A-71A0-460A-861D-E975B2C6D0DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vish.DataStructures", "Vish.DataStructures\Vish.DataStructures.csproj", "{B262BC52-992A-4174-8B05-34B9C930BE05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,9 +11,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3C996D99-004C-4940-ABB5-3A6F31ECD6A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C996D99-004C-4940-ABB5-3A6F31ECD6A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C996D99-004C-4940-ABB5-3A6F31ECD6A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C996D99-004C-4940-ABB5-3A6F31ECD6A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0864B3A-71A0-460A-861D-E975B2C6D0DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0864B3A-71A0-460A-861D-E975B2C6D0DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0864B3A-71A0-460A-861D-E975B2C6D0DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0864B3A-71A0-460A-861D-E975B2C6D0DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B262BC52-992A-4174-8B05-34B9C930BE05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B262BC52-992A-4174-8B05-34B9C930BE05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B262BC52-992A-4174-8B05-34B9C930BE05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B262BC52-992A-4174-8B05-34B9C930BE05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

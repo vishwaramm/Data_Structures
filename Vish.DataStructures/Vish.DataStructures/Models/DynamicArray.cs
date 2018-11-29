@@ -26,6 +26,7 @@ namespace Vish.DataStructures.Models
             }
         }
 
+        //Runtim O(1)
         public T this[int index]
         {
             get => m_array[index];
@@ -45,7 +46,10 @@ namespace Vish.DataStructures.Models
             m_array = new T[size];
         }
 
-        //Runtime amortized O(1), O(n) when array is resized
+        /// <summary>
+        /// Insert the specified val. Runtime amortized O(1), O(n) when array is resized
+        /// </summary>
+        /// <param name="val">Value.</param>
         public void Insert(T val)
         {
             zExpandArray();
@@ -53,6 +57,10 @@ namespace Vish.DataStructures.Models
             m_array[m_currentIndex] = val;
         }
 
+        /// <summary>
+        /// Delete the specified val. Runtime O(n)
+        /// </summary>
+        /// <param name="val">Value.</param>
         public void Delete(T val)
         {
             int index = -1;
@@ -72,6 +80,9 @@ namespace Vish.DataStructures.Models
             }
         }
 
+        /// <summary>
+        /// Deletes the last element in the array. Runtime O(1)
+        /// </summary>
         public void DeleteLast()
         {
             if (Count > 0)
@@ -81,7 +92,10 @@ namespace Vish.DataStructures.Models
             }
         }
 
-        //Runtime O(n)
+        /// <summary>
+        /// Shifts all items to the left. Runtime O(n)
+        /// </summary>
+        /// <param name="start">Start.</param>
         private void zShiftItemsLeft(int start)
         {
             for (int i = start; i < Count-1; i++)
@@ -92,7 +106,9 @@ namespace Vish.DataStructures.Models
             DeleteLast(); //delete the last one since we shifted one to the left
         }
 
-        //Runtime Omega(1), O(n)
+        /// <summary>
+        /// Expands the array twice the size of the original if the original is full. Runtime Omega(1), O(n)
+        /// </summary>
         private void zExpandArray()
         {
             if (m_array.Length == m_TotalCount)

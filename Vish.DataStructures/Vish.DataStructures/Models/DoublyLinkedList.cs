@@ -14,13 +14,19 @@ namespace Vish.DataStructures.Models
             Tail = tail;
         }
 
-        //Runtime O(1)
+        /// <summary>
+        /// Gets the first node. Runtime O(1)
+        /// </summary>
+        /// <returns>The first node.</returns>
         public DoublyLinkedListNode<T> GetFirstNode()
         {
             return Head;
         }
 
-        //Runtime O(1)
+        /// <summary>
+        /// Gets the last node. Runtime O(1)
+        /// </summary>
+        /// <returns>The last node.</returns>
         public DoublyLinkedListNode<T> GetLastNode()
         {
             if (Tail == null)
@@ -33,7 +39,10 @@ namespace Vish.DataStructures.Models
             }
         }
 
-        //Runtime O(n)
+        /// <summary>
+        /// Insert the specified value at the end of the list. Runtime O(1)
+        /// </summary>
+        /// <param name="val">Value.</param>
         public void Insert(T val)
         {
             if (Head == null)
@@ -58,7 +67,10 @@ namespace Vish.DataStructures.Models
             }
         }
 
-        //Runtime O(n)
+        /// <summary>
+        /// Delete the specified node. Runtime O(n)
+        /// </summary>
+        /// <param name="node">Node.</param>
         public void Delete(DoublyLinkedListNode<T> node)
         {
             var current = Head;
@@ -91,6 +103,11 @@ namespace Vish.DataStructures.Models
             }
         }
 
+        /// <summary>
+        /// Searches the list for the specified value. Runtime O(n)
+        /// </summary>
+        /// <returns>The search.</returns>
+        /// <param name="val">Value.</param>
         public DoublyLinkedListNode<T> Search(T val)
         {
             var current = Head;
@@ -106,6 +123,15 @@ namespace Vish.DataStructures.Models
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Clear the entire list. Runtime O(1)
+        /// </summary>
+        public void Clear()
+        {
+            Head = null;
+            Tail = null;
         }
     }
 

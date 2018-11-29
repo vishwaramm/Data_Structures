@@ -191,5 +191,26 @@ namespace Vish.DataStructures.Tests
                 Assert.AreEqual(node.Value, num);
             }
         }
+
+        [TestMethod]
+        public void Test_IntegerList_Clear()
+        {
+            SinglyLinkedList<int> intList = new SinglyLinkedList<int>();
+
+            int[] insertions = new int[5] { 1, 5, 50, 30, 23 };
+
+            foreach (int num in insertions)
+            {
+                intList.InsertFirst(num);
+            }
+
+            intList.Clear();
+
+            var first = intList.GetFirstNode();
+            var last = intList.GetLastNode();
+
+            Assert.IsNull(first);
+            Assert.IsNull(last);
+        }
     }
 }

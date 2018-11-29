@@ -17,7 +17,10 @@ namespace Vish.DataStructures.Models
             Tail = tail;
         }
 
-        //Runtime O(1)
+        /// <summary>
+        /// Gets the first node. Runtime O(1)
+        /// </summary>
+        /// <returns>The first node.</returns>
         public SinglyLinkedListNode<T> GetFirstNode()
         {
             if (Head == null)
@@ -31,7 +34,10 @@ namespace Vish.DataStructures.Models
         }
 
 
-        //Runtime O(1)
+        /// <summary>
+        /// Gets the last node. Runtime O(1)
+        /// </summary>
+        /// <returns>The last node.</returns>
         public SinglyLinkedListNode<T> GetLastNode()
         {
             if (Tail == null)
@@ -44,7 +50,10 @@ namespace Vish.DataStructures.Models
             }
         }
 
-        //Insertion for a linked list should be O(1)
+        /// <summary>
+        /// Inserts value at the end of the list. Runtime O(1)
+        /// </summary>
+        /// <param name="val">Value.</param>
         public void InsertLast(T val)
         {
             if (Head == null)
@@ -62,6 +71,10 @@ namespace Vish.DataStructures.Models
             }
         }
 
+        /// <summary>
+        /// Inserts the value at the beginning of the list. Runtime O(1)
+        /// </summary>
+        /// <param name="val">Value.</param>
         public void InsertFirst(T val)
         {
             if (Head == null)
@@ -81,7 +94,9 @@ namespace Vish.DataStructures.Models
             }
         }
 
-        //Runtime O(n)
+        /// <summary>
+        /// Deletes the last element in the list. Runtime O(n)
+        /// </summary>
         public void DeleteLast()
         {
             var current = Head;
@@ -99,7 +114,9 @@ namespace Vish.DataStructures.Models
             }
         }
 
-        //Runtime O(1)
+        /// <summary>
+        /// Deletes the first element in the list. Runtime O(1)
+        /// </summary>
         public void DeleteFirst()
         {
             if (Head != null)
@@ -108,6 +125,10 @@ namespace Vish.DataStructures.Models
             }
         }
 
+        /// <summary>
+        /// Deletes the specified node. Runtime O(n)
+        /// </summary>
+        /// <param name="node">Node.</param>
         public void Delete(SinglyLinkedListNode<T> node)
         {
             if (node == Head)
@@ -127,7 +148,11 @@ namespace Vish.DataStructures.Models
             }
         }
 
-        //Runtime O(n)
+        /// <summary>
+        /// Searches the list for the specified value. Runtime O(n)
+        /// </summary>
+        /// <returns>The search.</returns>
+        /// <param name="val">Value.</param>
         public SinglyLinkedListNode<T> Search(T val)
         {
             var current = Head;
@@ -145,6 +170,10 @@ namespace Vish.DataStructures.Models
             return null; //not found
         }
 
+        /// <summary>
+        /// Returns a reversed version of the current list. Runtime O(n)
+        /// </summary>
+        /// <returns>The reverse.</returns>
         public SinglyLinkedList<T> Reverse()
         {
             var current = Head;
@@ -172,6 +201,15 @@ namespace Vish.DataStructures.Models
                 yield return current;
                 current = current.Next;
             }
+        }
+
+        /// <summary>
+        /// Clears the entire list. Runtime O(1)
+        /// </summary>
+        public void Clear()
+        {
+            Head = null;
+            Tail = null;
         }
     }
 

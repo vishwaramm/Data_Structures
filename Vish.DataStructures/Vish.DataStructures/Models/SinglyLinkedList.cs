@@ -63,6 +63,7 @@ namespace Vish.DataStructures.Models
             else if (Tail == null)
             {
                 Tail = new SinglyLinkedListNode<T>(val);
+                Head.Next = Tail;
             }
             else
             {
@@ -111,6 +112,10 @@ namespace Vish.DataStructures.Models
             if (current != Head)
             {
                 Tail = current; //set tail to the new last elem
+            }
+            else
+            {
+                Tail = null;
             }
         }
 

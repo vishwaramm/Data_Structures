@@ -103,6 +103,26 @@ namespace Vish.DataStructures.Models
             }
         }
 
+        public void DeleteLast()
+        {
+            if (Tail != null)
+            {
+                if (Tail.Previous != Head)
+                {
+                    Tail = Tail.Previous;
+                    Tail.Next = null;
+                }
+                else
+                {
+                    Tail = null;
+                }
+            }
+            else
+            {
+                Head = null;
+            }
+        }
+
         /// <summary>
         /// Searches the list for the specified value. Runtime O(n)
         /// </summary>

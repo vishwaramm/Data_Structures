@@ -364,5 +364,43 @@ namespace Vish.DataStructures.Tests
 
             Assert.IsTrue(node.IsLeaf());
         }
+
+        [TestMethod]
+        public void Test_BST_FindMin()
+        {
+            BinaryTreeNode<int> root = new BinaryTreeNode<int>(5);
+
+            root.Insert(2);
+            root.Insert(8);
+            root.Insert(1);
+            root.Insert(4);
+            root.Insert(3);
+            root.Insert(9);
+            root.Insert(6);
+            root.Insert(7);
+
+            int min = root.FindMin();
+
+            Assert.AreEqual(1, min);
+        }
+
+        [TestMethod]
+        public void Test_BST_FindMax()
+        {
+            BinaryTreeNode<int> root = new BinaryTreeNode<int>(5);
+
+            root.Insert(2);
+            root.Insert(8);
+            root.Insert(1);
+            root.Insert(4);
+            root.Insert(3);
+            root.Insert(9);
+            root.Insert(6);
+            root.Insert(7);
+
+            int max = root.FindMax();
+
+            Assert.AreEqual(9, max);
+        }
     }
 }

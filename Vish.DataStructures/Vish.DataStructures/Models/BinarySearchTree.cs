@@ -222,5 +222,29 @@ namespace Vish.DataStructures.Models
             zPostOrderTraversal(node.Right, list);
             list.Add(node.Value);
         }
+
+        public T FindMin()
+        {
+            var current = this;
+
+            while (current.Left != null)
+            {
+                current = current.Left;
+            }
+
+            return current.Value;
+        }
+
+        public T FindMax()
+        {
+            var current = this;
+
+            while (current.Right != null)
+            {
+                current = current.Right;
+            }
+
+            return current.Value;
+        }
     }
 }

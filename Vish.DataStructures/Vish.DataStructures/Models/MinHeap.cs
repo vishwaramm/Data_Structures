@@ -181,11 +181,25 @@ namespace Vish.DataStructures.Models
                 T val = m_array[index];
                 int leftIndex = zGetLeftChildIndex(index);
                 int rightIndex = zGetRightChildIndex(index);
+                //by default its the left index in case the right is not there
+                int newRootIndex = leftIndex; 
 
-                if (leftIndex < m_count && m_array[leftIndex].CompareTo(val) < 0)
+                if (leftIndex < m_count && rightIndex < m_count)
                 {
-                    zSwap(index, leftIndex);
-                    index = leftIndex;
+                    if (m_array[leftIndex].CompareTo(m_array[rightIndex]) < 0)
+                    {
+                        newRootIndex = leftIndex;
+                    }
+                    else
+                    {
+                        newRootIndex = rightIndex;
+                    }
+                }
+
+                if (newRootIndex < m_count && m_array[leftIndex].CompareTo(val) < 0)
+                {
+                    zSwap(index, newRootIndex);
+                    index = newRootIndex;
                 }
                 else if (rightIndex < m_count && m_array[rightIndex].CompareTo(val) < 0)
                 {

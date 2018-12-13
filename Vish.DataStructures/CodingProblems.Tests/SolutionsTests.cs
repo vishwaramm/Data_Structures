@@ -314,5 +314,33 @@ namespace CodingProblems.Tests
             Assert.IsTrue(s.IsPrimeWithHighProbability(11, 3));
             Assert.IsFalse(s.IsPrimeWithHighProbability(15, 3));
         }
+
+        [TestMethod]
+        public void Test_EulersTotient()
+        {
+            Solutions s = new Solutions();
+            int[] nums = { 1,1,2,2,4,2,6,4,6,4 };
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int result = s.EulersTotient(i + 1);
+
+                Assert.AreEqual(nums[i], result);
+            }
+        }
+
+        [TestMethod]
+        public void Test_EulersTotientUsingEulersProduct()
+        {
+            Solutions s = new Solutions();
+            int[] nums = { 1, 1, 2, 2, 4, 2, 6, 4, 6, 4 };
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int result = s.EulersTotientUsingEulersProduct(i + 1);
+
+                Assert.AreEqual(nums[i], result);
+            }
+        }
     }
 }

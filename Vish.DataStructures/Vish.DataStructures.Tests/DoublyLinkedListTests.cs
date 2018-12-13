@@ -94,5 +94,26 @@ namespace Vish.DataStructures.Tests
             Assert.IsNull(node);
             
         }
+
+        [TestMethod]
+        public void Test_IntegerDoublyList_Clear()
+        {
+            DoublyLinkedList<int> intList = new DoublyLinkedList<int>();
+
+            int[] insertions = new int[5] { 1, 5, 50, 30, 23 };
+
+            foreach (int num in insertions)
+            {
+                intList.Insert(num);
+            }
+
+            intList.Clear();
+
+            var first = intList.GetFirstNode();
+            var last = intList.GetLastNode();
+
+            Assert.IsNull(first);
+            Assert.IsNull(last);
+        }
     }
 }
